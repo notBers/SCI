@@ -1,0 +1,31 @@
+.project-square {
+    background-color: #5C6B82; 
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+
+.project-parameter-row {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.material-icons {
+    color: #FFFFFF; 
+    font-size: 20px; 
+}
+
+.project-square-link {
+    text-decoration: none; 
+    color: inherit; 
+}
+
+.project-square-link:hover .project-square {
+    transform: scale(1.05); 
+    transition: transform 0.3s ease-in-out; 
+}

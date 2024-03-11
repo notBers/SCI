@@ -1,0 +1,136 @@
+.content-container {
+    background: linear-gradient(to bottom, #3A4A64 0%, #5C6B82 100%);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    color: white;
+    padding: 20px;
+    margin-top: -5px; 
+    border-radius: 10px;
+    display: flex;
+    height: 45vh;
+}
+
+.event-box, .countdown-box {
+    background-color: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px); 
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    font-size: 2rem;
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 1px solid #ddd;
+}
+
+.event-box {
+    border-left: none;
+}
+.time-segment {
+    text-align: center;
+    font-size: 50px;
+}
+
+.event-box h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.event-button {
+    background-color: #818DA3; 
+    color: white;
+    border: none;
+    padding: 8px 15px; 
+    border-radius: 20px; 
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); 
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-weight: bold;
+    text-transform: uppercase; 
+    letter-spacing: 0.5px; 
+    font-size: 0.9rem; 
+    max-width: 200px; 
+    width: auto; 
+    margin: 0 auto;
+    text-decoration: none;
+}
+
+.event-button:hover, .event-button:focus {
+    background-color: #6A7B9C;
+    color: white; 
+    transform: translateY(-2px); 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+.countdown-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em; 
+}
+
+.countdown-box div {
+    display: flex;
+    align-items: baseline;
+}
+
+.countdown-box span {
+    margin: 0 5px;
+}
+
+.colon {
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.label {
+    font-size: 0.3em; 
+    text-align: center;
+}
+
+
+@media screen and (max-width: 768px) {
+    .content-container {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .event-box, .countdown-box {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid #ddd;
+        padding: 10px;
+        font-size: 1.5rem;
+        padding-bottom: 30px;
+    }
+
+    .event-box {
+        border-top: none;
+    }
+
+    .event-button{
+        padding: 7px 12px;
+        font-size: 0.8rem;
+        max-width: 200px; 
+    }
+
+    .time-segment {
+        font-size: 35px; 
+        display: inline-block; 
+        margin: 0 2px; 
+    }
+
+    .label {
+        font-size: 0;
+    }
+
+    .colon {
+        font-size: 30px; 
+        padding: 0 3px; 
+    }
+}

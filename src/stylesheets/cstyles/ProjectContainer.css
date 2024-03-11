@@ -1,0 +1,12 @@
+.project-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    gap: 20px; 
+    padding: 20px; 
+}
+
+@media screen and (min-width: 768px) {
+    .project-container {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    }
+}
