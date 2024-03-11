@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import itjlogo from "../../resources/itjlogo.png";
-import sflogo from "../../resources/sflogo.png";
 import "../../stylesheets/cstyles/Pform.css"
 import "../../stylesheets/cstyles/ProjectContainer.css"
 import "../../stylesheets/cstyles/ProjectSquare.css"

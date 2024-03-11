@@ -3,19 +3,6 @@ import { Link } from "react-router-dom";
 import "../../stylesheets/cstyles/Navbar.css";
 import "../../stylesheets/cstyles/FSection.css";
 import "../../stylesheets/cstyles/DynamicInfo.css";
-import itjlogo from "../../resources/itjlogo.png";
-import sflogo from "../../resources/sflogo.png";
-
-import photo1 from "../../resources/photo1.jpg";
-import photo2 from "../../resources/photo2.jpg";
-import photo3 from "../../resources/photo3.jpg";
-import photo4 from "../../resources/photo4.jpg";
-import photo5 from "../../resources/photo5.jpg";
-import photo6 from "../../resources/photo6.jpg";
-import photo7 from "../../resources/photo7.jpg";
-import photo8 from "../../resources/photo8.jpg";
-import photo9 from "../../resources/photo9.jpg";
-import photo10 from "../../resources/photo10.jpg";
 
 export function Navbar(){
     const [isOpen, setIsOpen] = useState(false);
@@ -27,8 +14,8 @@ export function Navbar(){
     return (
         <nav className="navbar">
             <div className="logo-container">
-                <img className="itjlogo" src={itjlogo} alt="Logo 1" />
-                <img className="sflogo" src={sflogo} alt="Logo 2" />
+                <img className="itjlogo" src={"https://res.cloudinary.com/dfrjfuchi/image/upload/v1710169880/sci-resources/itjlogo_kjbt5a.png"} alt="Logo 1" />
+                <img className="sflogo" src={"https://res.cloudinary.com/dfrjfuchi/image/upload/v1710172508/sci-resources/sflogo_q6gzvf.png"} alt="Logo 2" />
             </div>
             <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
                 <li><Link to="/">Inicio</Link></li>
@@ -117,7 +104,7 @@ export function FSection(){
 
 function People() {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const photos = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10]; 
+    const photos = ["https://res.cloudinary.com/dfrjfuchi/image/upload/v1710169925/sci-resources/photo1_wibe95.jpg", "https://res.cloudinary.com/dfrjfuchi/image/upload/v1710169924/sci-resources/photo3_ltn7px.jpg", "https://res.cloudinary.com/dfrjfuchi/image/upload/v1710169923/sci-resources/photo2_imzlao.jpg", "https://res.cloudinary.com/dfrjfuchi/image/upload/v1710169879/sci-resources/photo10_uy4gla.jpg"]; 
 
     const goPrevious = () => {
         const isFirstPhoto = currentIndex === 0;
