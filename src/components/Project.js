@@ -4,7 +4,7 @@ import { Navbar } from './subcomponents/Hpcomponents';
 import "../stylesheets/cstyles/Project.css";
 
 function Project() {
-    const { pid } = useParams();
+    const { id } = useParams();
     const [projectDetails, setProjectDetails] = useState(null);
     const [images, setImages] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -12,11 +12,11 @@ function Project() {
     useEffect(() => {
         const fetchProjectDetails = async () => {
             try {
-                const response = await fetch(`https://sci-api.onrender.com/api/projects?PID=${pid}`);
+                const response = await fetch(`https://sci-api.onrender.com/api/projects?filters[PID][$eq]=${id}&populate=*`);
                 const data = await response.json();
                 setProjectDetails(data.data[0].attributes);
                 
-                const previewResponse = await fetch(`https://sci-api.onrender.com/api/projectpreviews?PID=${pid}`);
+                const previewResponse = await fetch(`https://sci-api.onrender.com/api/projectpreviews?filters[PID][$eq]=${id}&populate=*`);
                 const previewData = await previewResponse.json();
                 if (previewData.data.length > 0) {
                     const projectPreviewId = previewData.data[0].id; 
@@ -40,7 +40,7 @@ function Project() {
 
         const fetchProjectImages = async () => {
             try {
-                const response = await fetch(`https://sci-api.onrender.com/api/carousels?PID=${pid}&populate=*`);
+                const response = await fetch(`https://sci-api.onrender.com/api/carousels?filters[PID][$eq]=${id}&populate=*`);
                 const data = await response.json();
         
                 const imageUrls = data.data.flatMap(item =>
@@ -58,7 +58,7 @@ function Project() {
 
         fetchProjectDetails();
         fetchProjectImages();
-    }, [pid]);
+    }, [id]);
 
     if (!projectDetails) return <div>Loading...</div>; 
 
