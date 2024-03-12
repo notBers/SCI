@@ -145,9 +145,9 @@
 
 @media screen and (max-width: 768px) {
     .logo-sci {
-        width: 70%; 
-        max-width: 300px; 
+        width: 100%; 
+        max-width: 400px; 
         margin: 15px; 
-        margin-left: 20vw;
+        margin-left: 15vw;
     }
 }
