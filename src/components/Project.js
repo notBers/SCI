@@ -62,7 +62,7 @@ function Project() {
 
     if (!projectDetails) return <div>Loading...</div>; 
 
-    const displayFields = ['Titulo', 'Resumen', 'Planteamiento', 'Antecedentes', 'Objetivo', 'Justificacion', 'Hipotesis', 'Metodo', 'Discusion', 'Conclusiones', 'Bibliografia'];
+    const displayFields = ['Titulo', 'Resumen', 'Planteamiento', 'Antecedentes', 'Objetivo', 'Justificacion', 'Hipotesis', 'Metodo', 'Resultados','Discusion', 'Conclusiones', 'Bibliografia'];
 
     const goPrevious = () => {
         const isFirstImage = currentIndex === 0;
