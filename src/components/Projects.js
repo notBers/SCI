@@ -12,7 +12,7 @@ export function Projects() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch("https://sci-api.onrender.com/api/projectpreviews");
+                const response = await fetch("https://sci-api.onrender.com/api/projectpreviews?pagination[start]=0&pagination[limit]=100");
                 const content = await response.json();
                 const projects = content.data.map(item => ({...item.attributes, pid: item.attributes.PID }));
                 setAllProjects(projects); 
