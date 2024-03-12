@@ -66,7 +66,7 @@ export function FSection(){
     return (
         <div className="content-container">
             <div className="event-box">
-                <h1>Sci-Fest</h1>
+                <img className="logo-sci" src={"https://res.cloudinary.com/dfrjfuchi/image/upload/v1710172508/sci-resources/sflogo_q6gzvf.png"} alt="Logo 2" />
                 <Link to="/proyectos" className="event-button">Proyectos</Link>
             </div>
             <div className="countdown-box">

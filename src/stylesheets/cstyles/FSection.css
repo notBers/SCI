@@ -134,3 +134,19 @@
         padding: 0 3px; 
     }
 }
+
+.logo-sci{
+    display: block; 
+    width: 100%; 
+    max-width: 500px; 
+    height: auto; 
+    margin: 20px auto; 
+}
+
+@media screen and (max-width: 768px) {
+    .logo-sci {
+        width: 70%; 
+        max-width: 150px; 
+        margin: 10px auto; 
+    }
+}
