@@ -128,4 +128,3 @@ export function Pagination({ totalPages, currentPage, onPageChange }) {
         </div>
     );
 }
-
