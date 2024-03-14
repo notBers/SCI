@@ -3,65 +3,61 @@ import { Filterform, ProjectContainer, Pagination } from "./subcomponents/Projec
 import { Navbar } from "./subcomponents/Hpcomponents";
 
 export function Projects() {
-    const [allProjects, setAllProjects] = useState([]); 
+    const [allProjects, setAllProjects] = useState([]);
     const [filterData, setFilterData] = useState({ filterBy: 'todos' });
     const [currentPage, setCurrentPage] = useState(1);
-    const [filteredProjects, setFilteredProjects] = useState([]); 
-    const [displayProjects, setDisplayProjects] = useState([]); 
     const itemsPerPage = window.innerWidth <= 768 ? 10 : 20;
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchProjects = async () => {
             try {
-                const response = await fetch("https://sci-api.onrender.com/api/projectpreviews?pagination[start]=0&pagination[limit]=200");
-                const content = await response.json();
-                const projects = content.data.map(item => ({...item.attributes, pid: item.attributes.PID }));
-                setAllProjects(projects);
-                setFilteredProjects(projects);
-                setDisplayProjects(projects.slice(0, itemsPerPage)); 
+                const urls = [
+                    `https://sci-api.onrender.com/api/projectpreviews?pagination[start]=0&pagination[limit]=100`,
+                    `https://sci-api.onrender.com/api/projectpreviews?pagination[start]=100&pagination[limit]=60`
+                ];
+                const requests = urls.map(url => fetch(url));
+                const responses = await Promise.all(requests);
+                const dataPromises = responses.map(response => response.json());
+                const dataResults = await Promise.all(dataPromises);
+
+                const combinedProjects = [...dataResults[0].data, ...dataResults[1].data].map(item => ({ ...item.attributes, pid: item.attributes.PID }));
+
+                setAllProjects(combinedProjects);
             } catch (error) {
                 alert("INTERNAL ERROR, RELOAD PAGE");
             }
         };
 
-        fetchData();
+        fetchProjects();
     }, []);
 
-    useEffect(() => {
-        const startIndex = (currentPage - 1) * itemsPerPage;
-        setDisplayProjects(filteredProjects.slice(startIndex, startIndex + itemsPerPage));
-    }, [currentPage, filteredProjects]);
+    const applyFilters = (projects, filters) => {
+        return projects.filter(project => {
+            if (filters.filterBy === 'título' && filters.title) {
+                return project.Pname.toLowerCase().includes(filters.title.toLowerCase());
+            } else if (filters.filterBy === 'área' && filters.area) {
+                return project.Area.toLowerCase() === filters.area.toLowerCase();
+            } else if (filters.filterBy === 'participantes' && filters.participants) {
+                return project.Participants.toLowerCase().includes(filters.participants.toLowerCase());
+            }
+            return true; 
+        });
+    };
 
     const handleFilterSubmit = (data) => {
         setFilterData(data);
-        setCurrentPage(1); 
-
-        let tempFilteredProjects = [...allProjects]; 
-
-        if (data.filterBy === 'título' && data.title) {
-            tempFilteredProjects = tempFilteredProjects.filter(project =>
-                project.Pname.toLowerCase().includes(data.title.toLowerCase())
-            );
-        } else if (data.filterBy === 'área' && data.area) {
-            tempFilteredProjects = tempFilteredProjects.filter(project =>
-                project.Area.toLowerCase() === data.area.toLowerCase()
-            );
-        } else if (data.filterBy === 'participantes' && data.participants) {
-            tempFilteredProjects = tempFilteredProjects.filter(project =>
-                project.Participants.toLowerCase().includes(data.participants.toLowerCase())
-            );
-        }
-
-        setFilteredProjects(tempFilteredProjects); 
+        setCurrentPage(1);
     };
 
-    const totalPages = Math.ceil(filteredProjects.length / itemsPerPage); 
+    const filteredProjects = applyFilters(allProjects, filterData);
+    const paginatedProjects = filteredProjects.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+    const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
 
     return (
         <div className="p-container">
             <Navbar />
             <Filterform onFilterSubmit={handleFilterSubmit} />
-            <ProjectContainer projects={displayProjects} />
+            <ProjectContainer projects={paginatedProjects} />
             {totalPages > 1 && (
                 <Pagination totalPages={totalPages} currentPage={currentPage} onPageChange={setCurrentPage} />
             )}
