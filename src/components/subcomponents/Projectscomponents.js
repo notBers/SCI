@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 export function Filterform({ onFilterSubmit }) {
     const [filterBy, setFilterBy] = useState('todos');
     const [title, setTitle] = useState('');
-    const [area, setArea] = useState('');
+    const [area, setArea] = useState('agropecuarias-y-de-alimentos');
     const [participants, setParticipants] = useState('');
 
     const handleSubmit = (e) => {
