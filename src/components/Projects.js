@@ -22,6 +22,8 @@ export function Projects() {
 
                 const combinedProjects = [...dataResults[0].data, ...dataResults[1].data].map(item => ({ ...item.attributes, pid: item.attributes.PID }));
 
+                combinedProjects.sort((a, b) => b.Views - a.Views);
+
                 setAllProjects(combinedProjects);
             } catch (error) {
                 alert("INTERNAL ERROR, RELOAD PAGE");
@@ -38,7 +40,7 @@ export function Projects() {
             } else if (filters.filterBy === 'área' && filters.area) {
                 return project.Area.toLowerCase() === filters.area.toLowerCase();
             } else if (filters.filterBy === 'participantes' && filters.participants) {
-                return project.Participants.toLowerCase().includes(filters.participants.toLowerCase());
+                return project.Participants === filters.participants;
             }
             return true; 
         });
