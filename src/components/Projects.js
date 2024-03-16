@@ -6,7 +6,7 @@ export function Projects() {
     const [allProjects, setAllProjects] = useState([]);
     const [filterData, setFilterData] = useState({ filterBy: 'todos' });
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = window.innerWidth <= 768 ? 10 : 20;
+    const itemsPerPage = window.innerWidth <= 768 ? 15 : 20;
 
     useEffect(() => {
         const fetchProjects = async () => {
