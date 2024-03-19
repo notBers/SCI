@@ -22,6 +22,7 @@ export function Navbar(){
                 <li><Link to="/pabellones">Pabellones</Link></li>
                 <li><Link to="/proyectos">Proyectos</Link></li>
                 <li><Link to="/xolotl">Xolotl</Link></li>
+                <li><Link to="/horario">Horario</Link></li>
             </ul>
             <div className="hamburger" onClick={toggleMenu}>
                 <div className="line"></div>

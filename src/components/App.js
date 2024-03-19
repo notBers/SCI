@@ -4,6 +4,7 @@ import Pabellones from './Pabellones';
 import { Projects } from './Projects';
 import Project from './Project';
 import Xolotl from './Xolotl';
+import HorariosSection from './Horario';
 import '../stylesheets/App.css';
 
 
@@ -15,6 +16,7 @@ function App() {
       <Route path="/proyectos/:id" element={<Project/>}/>
       <Route path="/pabellones" element={<Pabellones/>}/>
       <Route path="/xolotl" element={<Xolotl/>}/>
+      <Route path="/horario" element={<HorariosSection/>}/>
     </Routes>
   );
 }
