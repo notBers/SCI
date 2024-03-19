@@ -143,7 +143,7 @@ export function Sci() {
             <p>El evento se realiza con el fin de promover la participación de jóvenes a través de proyectos científicos y tecnológicos, de investigación, innovación y divulgación.</p>
             <p>En este documento encontrarás todo lo necesario para hacer de ésta, una experiencia única y enriquecedora.</p>
             <p className="last-p">Lee con atención cada punto de esta guía y prepárate para dar lo mejor de ti, recuerda que los mejores proyectos son elegidos por el <strong>Comité Evaluador</strong> para obtener su acreditación para participar en la <strong>ExpoCiencias Estado de México</strong> representando al ITJ-ZE como parte del equipo oficial del instituto.</p>
-            <p>Click: <a href="https://docs.google.com/document/d/1kibQBn473mGDyGesek2pauND1AkJMbOF7-E4f-MRghc/edit?usp=drive_link" className="event-button">Guía</a> </p>
+            <p>Click: <a href="https://docs.google.com/document/d/1kibQBn473mGDyGesek2pauND1AkJMbOF7-E4f-MRghc/edit?usp=drive_link" className="event-button">Guía</a> <a href="https://res.cloudinary.com/dfrjfuchi/image/upload/v1710863837/Grupo1_z0ybwe.png" className="event-button">Mapa G1</a> <a href="https://res.cloudinary.com/dfrjfuchi/image/upload/v1710863852/Grupo2_jckhbn.png" className="event-button">Mapa G2</a> </p>
         </div>
     );
 }
