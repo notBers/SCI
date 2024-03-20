@@ -34,36 +34,6 @@ export function Navbar(){
 };
 
 export function FSection(){
-    const calculateTimeLeft = () => {
-        const countDownDate = new Date("March 20, 2024 07:00:00").getTime();
-        const now = new Date().getTime();
-        const distance = countDownDate - now;
-
-        if (distance < 0) {
-            clearInterval(timer);
-            return { days: 0, hours: 0, minutes: 0, seconds: 0, expired: true };
-        }
-
-        return {
-            days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-            hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-            minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-            seconds: Math.floor((distance % (1000 * 60)) / 1000),
-            expired: false
-        };
-    };
-
-    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-    let timer;
-
-    useEffect(() => {
-        timer = setInterval(() => {
-            setTimeLeft(calculateTimeLeft());
-        }, 1000);
-
-        return () => clearInterval(timer);
-    }, []);
-
     return (
         <div className="content-container">
             <div className="event-box">
@@ -72,31 +42,7 @@ export function FSection(){
             </div>
             <div className="countdown-box">
                 <div id="countdown">
-                    {timeLeft.expired ? (
                         <span>Evento en progreso</span>
-                    ) : (
-                        <>
-                            <div className="time-segment">
-                                <span>{timeLeft.days.toString().padStart(2, '0')}</span>
-                                <div className="label">Días</div>
-                            </div>
-                            <div className="colon">:</div>
-                            <div className="time-segment">
-                                <span>{timeLeft.hours.toString().padStart(2, '0')}</span>
-                                <div className="label">Horas</div>
-                            </div>
-                            <div className="colon">:</div>
-                            <div className="time-segment">
-                                <span>{timeLeft.minutes.toString().padStart(2, '0')}</span>
-                                <div className="label">Minutos</div>
-                            </div>
-                            <div className="colon">:</div>
-                            <div className="time-segment">
-                                <span>{timeLeft.seconds.toString().padStart(2, '0')}</span>
-                                <div className="label">Segundos</div>
-                            </div>
-                        </>
-                    )}
                 </div>
             </div>
         </div>
