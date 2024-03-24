@@ -42,7 +42,7 @@ export function FSection(){
             </div>
             <div className="countdown-box">
                 <div id="countdown">
-                        <span>Evento en progreso!!</span>
+                        <span>Evento finalizado</span>
                 </div>
             </div>
         </div>
